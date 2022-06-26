@@ -1,0 +1,12 @@
+- !host
+  id: questions-app
+  annotations:
+    authn-k8s/namespace: questions-app
+    authn-k8s/service-account: questions-sa
+    authn-k8s/authentication-container-name: cyberark-secrets-provider-for-k8s
+
+- !grant
+  roles:
+  - !group conjur/authn-k8s/dev-cluster/consumers
+  members:
+  - !host questions-app
